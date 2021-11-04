@@ -23,10 +23,17 @@ function mouseDragged(){
   const dx = mouseX - pmouseX;
   const dy = mouseY - pmouseY;
   if(mag(dx, dy) > 5){
-    const b = { x: mouseX, y: mouseY, size: 20, vx: dx, vy: dy };
+    const b = { x: mouseX, y: mouseY, size: random(20), vx: dx, vy: dy };
     balls.push(b);
   }
 }
+
+setInterval(function(draw2){
+  const dx = Math.random()*2-1;
+  const dy = Math.random()*2-1;
+  const a = { x: windowWidth/2, y: windowHeight/2, size: random(25), vx: dx, vy: dy };
+    balls.push(a);
+  }, 250);
 
 function windowResized(){
   resizeCanvas(windowWidth, windowHeight);
