@@ -10,7 +10,22 @@ function setup(){
 
 function draw(){
   background(160, 192, 255);
+
+//スペースキーを押していると早くなる
+if(keyIsDown(" ".charCodeAt(0))){
+  count = (count + 1) % cycle + 0.75;
+}
+
+else{
   count = (count + 1) % cycle;
+}
   // BLANK[1]
-  ellipse(width / 2, height / 2, size);
+if(count < 50){
+  ellipse(width / 2, height / 2, count);
+}
+
+else{
+    ellipse(width / 2, height / 2, 100 - count);
+}
+
 }
